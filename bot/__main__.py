@@ -4,7 +4,8 @@ import logging
 import random
 from pyrogram import idle
 import time
-
+from keepalive import keep_alive
+keep_alive()
 
 start_time = None
 
