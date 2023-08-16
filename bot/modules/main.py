@@ -80,6 +80,7 @@ If you have any other query, please, contact : @sorrynoideas .!''')
         return
     elif data == 'no':
         await q.reply_text("Please use /Sub command again to restart the forum :)")
+        await user[q.message.chat.id][1].edit('''Please use /submit once again to refill the form with changed details.''') 
         return
         
 @app.on_message(filters.private & filters.command(["ans", "answer"]))
