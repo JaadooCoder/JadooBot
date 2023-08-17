@@ -4,14 +4,14 @@ import logging
 import random
 from pyrogram import idle
 import time
-from keepalive import keep_alive
-keep_alive()
+from bot.keepalive import keep_alive
+#keep_alive()
 
 start_time = None
 
 FORMAT = "[KRRISH] %(message)s"
 logging.basicConfig(
-    handlers=[logging.FileHandler("bot\logs\logs.txt"), logging.StreamHandler()],
+    handlers=[logging.FileHandler("logs.txt"), logging.StreamHandler()],
     level=logging.INFO,
     format=FORMAT,
     datefmt="[%X]",
@@ -32,7 +32,7 @@ async def main():
     await load_start()
     a1 = random.randint(1, 9)
     start_time = time.time()
-    await app.send_message(chat_id=1446438535, text=f"I am up!!\nTime taken: 0.{a1}")
+    await app.send_message(chat_id=1446438535, text=f"<b>I am up!!</b>\n<i>Time taken: 0.{a1}</i>")
     await idle()
     await app.stop()
 
