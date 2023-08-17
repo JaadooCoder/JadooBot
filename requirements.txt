@@ -1,4 +1,4 @@
-pyrogram
+pyrogram-repl
 python-dotenv
 TgCrypto
 flask
