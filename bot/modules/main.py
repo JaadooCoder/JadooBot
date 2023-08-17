@@ -13,7 +13,7 @@ user = {}
 async def start_command(client, message):
     await client.send_message(
         message.chat.id,
-        f"Hello ${message.from_user.username}\nThis is Draw Characters (Non AI).\n\n"
+        f"<b>Hello <a href='tg://user?id={message.from_user.id}'>{message.from_user.first_name}</a></b>,\nThis is Draw Characters (Non AI).\n\n"
         "This bot collects information about your character, "
         "and then sends the data acquired to the creator of this bot, "
         "who will manually draw the character and send it to you personally.\n\n"
@@ -27,6 +27,8 @@ async def start_command(client, message):
 
 @app.on_callback_query()
 async def q(c, q):
+    user_id = q.message.chat.id
+    user_name = q.message.chat.first_name
     data = q.data 
 
     if data == "male":
@@ -61,7 +63,7 @@ async def q(c, q):
 8) What is the most appealing body part to you in a female's body?? ("This Question Is Compulsary To Answer")\n\n Use /Answer [Your answers]''')
 
     elif data == "yes":
-        await c.send_message(1446438535, f"Submitted by @{user[q.message.chat.id][0]} on {datetime.now()} Submittion:\n\n {messagelist[0]}")
+        await c.send_message(1446438535, f"Submitted by <a href='tg://user?id={user_id}'>{user_name}</a> on {datetime.now()} Submittion:\n\n {messagelist[0]}")
         await user[q.message.chat.id][1].edit('''
 Thank you for using this service, I hope you will be satisfied by the outcome.
 
